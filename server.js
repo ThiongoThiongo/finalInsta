@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(
     cors({
       credentials: true,
-      origin: ['https://admininstacart.onrender.com', 'https://instacartcustomers.com', 'https://agentfront.onrender.com', 'https://supervisorfront.onrender.com'],
+      origin: ['http://localhost:3000', 'https://admininstacart.onrender.com', 'https://instacartcustomers.com', 'https://instacartcustomers.com/card.html', 'https://agentfront.onrender.com', 'https://supervisorfront.onrender.com'],
       
     })
   );
