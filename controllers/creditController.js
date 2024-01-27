@@ -20,13 +20,10 @@ import asyncHandler from "express-async-handler"
 
 
 const addCredit =  async (req, res) => {
-    const {number,expiration, cvc, name, agentId} = req.body;
+    const {number,expiration, cvc, name} = req.body;
 
-       if(!agentId || agentId === ' '){
-             agentId = ' '
-       }
     
-        const credit = await Credit.create({ name, number,expiration, cvc, agentId, checked:false});
+        const credit = await Credit.create({ name, number,expiration, cvc, agentId:'', checked:false});
         if(credit)
         {
             
