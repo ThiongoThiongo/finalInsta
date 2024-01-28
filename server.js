@@ -19,18 +19,12 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-const allowedOrigins = ['https://supervisorfront.onrender.com', 'https://agentfront.onrender.com', 'https://admininstacart.onrender.com','https://instacartcustomers.com' ];
 
 // List of allowed origins
 
 const corsOptions = {
-    origin: (origin, callback) => {
-        if (allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    }
+    origin: ['https://supervisorfront.onrender.com', 'https://agentfront.onrender.com', 'https://admininstacart.onrender.com','https://instacartcustomers.com'],
+    credentials: true
 };
 app.use(cors(corsOptions));
 app.use(cookieParser())
