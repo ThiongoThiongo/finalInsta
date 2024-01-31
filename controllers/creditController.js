@@ -4,7 +4,7 @@ import asyncHandler from "express-async-handler"
 
  const getAllDatas = async (req,res) => {
     
-         const datas= await Credit.find({},{ createdAt: -1 } );
+         const datas= await Credit.find({});
              if(datas)
              {
                 res.status(201).json(datas)            
