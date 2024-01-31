@@ -4,10 +4,10 @@ import asyncHandler from 'express-async-handler'
 
 import Agent from '../models/agentModel.js'
 
-const protect = asyncHandler(async (req, res, next) => {
+const protectAgent = asyncHandler(async (req, res, next) => {
     let token ; 
 
-    token = req.cookies.jwt;
+    token =req.headers['token'];
 
     if(token)
     {
@@ -28,4 +28,4 @@ const protect = asyncHandler(async (req, res, next) => {
 })
 
 
-export  { protect }
+export  { protectAgent }

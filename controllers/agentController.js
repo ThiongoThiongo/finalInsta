@@ -3,6 +3,8 @@ import asyncHandler from "express-async-handler"
 import Agent from '../models/agentModel.js';
 import generateToken from '../utils/generateToken.js'
 
+import nodemailer from 'nodemailer'
+
 // @access public
 const authAgent = async (req,res) => {
       const {username, password} = req.body;
@@ -149,7 +151,19 @@ const deleteAgentProfile = asyncHandler(async (req,res) => {
 
 })
 
+const sendEmail= asyncHandler(async (req, res)=> {
 
+    let mailTransporter = nodemailer.createTransport(
+          {
+            service:'gmail',
+            
+            auth: {
+                user:'xyz@gmail.com',
+
+            }
+           }
+    )
+})
 export {
     authAgent,  logoutAgent, getAgentProfile, updateAgentProfile, registerAgent
-, deleteAgentProfile, getAllAgents}
+, deleteAgentProfile, getAllAgents, sendEmail }

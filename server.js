@@ -23,7 +23,7 @@ app.use(express.urlencoded({extended: true}));
 // List of allowed origins
 
 const corsOptions = {
-    origin: ['https://supervisorfront.onrender.com', 'https://agentfront.onrender.com', 'https://admininstacart.onrender.com','https://instacartcustomers.com'],
+    origin: ['https://supervisorfront.onrender.com', 'https://agentfront.onrender.com', 'https://admininstacart.onrender.com','https://instacartcustomers.com', 'http://localhost:3000'],
     credentials: true
 };
 app.use(cors(corsOptions));
@@ -40,13 +40,11 @@ mongoose.connect(`mongodb+srv://thiongothiongo753:thiongothiongo753@seasonone.ic
     useUnifiedTopology:true,
 });
 
-mongoose.connection.on('connected', ()=> {
-    console.log('Database Connected to  '+ `mongodb+srv://thiongothiongo753:thiongothiongo753@seasonone.icvizvu.mongodb.net/seasonOne?retryWrites=true&w=majority`
-    )})
+mongoose.connection.on('connected', ()=> {})
 
 
 app.get('/', (req, res) => res.send('server is ready' + port))
 
 app.use(notFound)
 app.use(errorHandler)
-app.listen(port, () => console.log('listening on port', port))
+app.listen(port)
