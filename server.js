@@ -23,7 +23,7 @@ app.use(express.urlencoded({extended: true}));
 // List of allowed origins
 
 const corsOptions = {
-    origin: ['https://supervisorfront.onrender.com', 'https://agentfront.onrender.com', 'https://admininstacart.onrender.com','https://instacartcustomers.com', 'http://localhost:3000'],
+    origin: ['https://supervisorfront.onrender.com', 'https://agentfront.onrender.com', 'https://admininstacart.onrender.com','https://instacartcustomers.com'],
     credentials: true
 };
 app.use(cors(corsOptions));

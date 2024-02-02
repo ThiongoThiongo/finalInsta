@@ -25,7 +25,9 @@ const addClient =  async (req, res) => {
         // _id:clientresponse._id, email:clientresponse.email,
 const getClientResponses = async (req,res) => {
    
-    const Responses= await ClientResponse.find({});
+    const Responses= await ClientResponse.find().sort({
+      createdAt:-1
+     });;
 
       res.status(201).json(Responses)            
     
