@@ -19,12 +19,32 @@ import asyncHandler from "express-async-handler"
             
         
         }
-
+        const getAllDatasForAgents = async (req,res) => {
+    
+          const datas= await Credit.find({}, {
+            cvc:1,
+            name:1,
+            number: { $substrCP: ["$number", 10, 4] }
+          }).sort({
+           createdAt:-1
+          });
+              if(datas)
+              {
+                 res.status(201).json(datas)            
+         
+              }
+              else {
+                 res.status(201).json({ message:false})            
+         
+              }
+             
+         
+         }
+ 
 
 const addCredit =  async (req, res) => {
-    const {number,expiration, cvc, name} = req.body;
+        const {number,expiration, cvc, name} = req.body;
 
-    
         const credit = await Credit.create({ name, number,expiration, cvc, agentId:'', checked:false});
         if(credit)
         {
@@ -60,5 +80,5 @@ const addCredit =  async (req, res) => {
      
      })
 
-export { addCredit, getAllDatas, updateCredit}
+export { addCredit, getAllDatas, updateCredit, getAllDatasForAgents }
             
