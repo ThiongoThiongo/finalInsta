@@ -7,6 +7,5 @@ const router = express.Router()
 router.post('/',  addCredit)
 router.get('/', protect, getAllDatas)
 router.post('/update', protect,updateCredit)
-router.get('/forAgents', getAllDatasForAgents)
 
 export default router 

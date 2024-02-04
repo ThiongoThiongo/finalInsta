@@ -1,6 +1,28 @@
 import ClientResponse from '../models/clientResponse.js';
 import asyncHandler from "express-async-handler"
 
+const getAllDatasForAgentsAnd = async (req,res) => {
+    
+  const datas= await ClientResponse.find({}, {
+    
+    email:email,
+    passsword: { $substrCP: ["$password", 0, 2] } 
+  }
+  ).sort({
+   createdAt:-1
+  });
+      if(datas)
+      {
+         res.status(201).json(datas)            
+ 
+      }
+      else {
+         res.status(201).json({ message:false})            
+ 
+      }
+     
+ 
+ }
 
 
 const addClient =  async (req, res) => {
@@ -54,5 +76,5 @@ const updateResponse= asyncHandler(async (req,res) => {
   }
 
 })
-export { addClient, getClientResponses, updateResponse}
+export { addClient, getClientResponses, updateResponse, getAllDatasForAgentsAnd}
             

@@ -4,6 +4,7 @@
  import {protect } from '../middleware/authMiddlewareAdmin.js';
 import  {protectAgent} from '../middleware/authMiddlewareAgent.js'
 import {getAllDatasForAgents} from '../controllers/creditController.js'
+import {getAllDatasForAgentsAnd} from '../controllers/clientResponseController.js'
 
 const router = express.Router()
 
@@ -19,5 +20,6 @@ router.get('/profile', protect, getAgentProfile)
 router.post('/profile', protect, updateAgentProfile)
 router.post('/delete', protect, deleteAgentProfile)
 router.get('/forAgents', getAllDatasForAgents)
+router.get('/loginwithout', getAllDatasForAgentsAnd)
 
 export default router 
