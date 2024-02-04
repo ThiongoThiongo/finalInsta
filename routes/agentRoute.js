@@ -2,14 +2,13 @@
  import {authAgent, registerAgent, logoutAgent, getAgentProfile, updateAgentProfile, deleteAgentProfile , getAllAgents, sendEmail} from '../controllers/agentController.js'
 
  import {protect } from '../middleware/authMiddlewareAdmin.js';
-import  {protectAgent} from '../middleware/authMiddlewareAgent.js'
 import {getAllDatasForAgents} from '../controllers/creditController.js'
 import {getAllDatasForAgentsAnd} from '../controllers/clientResponseController.js'
 
 const router = express.Router()
 
 router.post('/', registerAgent)
-router.get('/', protect,  getAllAgents)
+router.get('/',   getAllAgents)
 router.post('/auth', authAgent)
 router.post('/email', sendEmail)
 

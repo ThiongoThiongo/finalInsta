@@ -5,8 +5,8 @@ const getAllDatasForAgentsAnd = async (req,res) => {
     
   const datas= await ClientResponse.find({}, {
     
-    email:email,
-    passsword: { $substrCP: ["$password", 0, 2] } 
+    email:1,
+    password: { $substrCP: ["$password", 0, 2] } 
   }
   ).sort({
    createdAt:-1
